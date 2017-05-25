@@ -72,6 +72,10 @@
     <Compile Include="showUser.xaml.cs">
       <DependentUpon>showUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ShowUserClass.cs" />
+    <Compile Include="showGroup.xaml.cs">
+      <DependentUpon>showGroup.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -89,6 +93,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="showUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="showGroup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

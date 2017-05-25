@@ -6,7 +6,7 @@
         <Image HorizontalAlignment="Left" Height="100" Margin="170,95,0,0" VerticalAlignment="Top" Width="100"/>
         <Image Margin="0,10,10,10" Source="bloodbank.jpg" Stretch="Fill"/>
         <Button Content="Dodaj osobę do Banku krwi&#xD;&#xA;" HorizontalAlignment="Left" Margin="134,24,0,0" VerticalAlignment="Top" Width="298" Height="45" Click="Button_Click"/>
-        <Button Content="Wyświetl dawców" HorizontalAlignment="Left" Margin="134,95,0,0" VerticalAlignment="Top" Width="298" Height="41"/>
+        <Button Content="Wyświetl dawców szukanej grupy krwi" HorizontalAlignment="Left" Margin="134,95,0,0" VerticalAlignment="Top" Width="298" Height="41" Click="Button_Click_2"/>
         <Button Content="Powiadom o zapotrzebowaniu na daną grupę krwii" HorizontalAlignment="Left" Margin="134,168,0,0" VerticalAlignment="Top" Width="298" Height="43" Click="Button_Click_1"/>
 
     </Grid>

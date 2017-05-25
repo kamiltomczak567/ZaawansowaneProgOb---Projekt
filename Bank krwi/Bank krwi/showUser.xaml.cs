@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SQLite;
+using System.Data;
+
 
 namespace Bank_krwi
 {
@@ -19,9 +22,40 @@ namespace Bank_krwi
     /// </summary>
     public partial class showUser : Window
     {
-        public showUser()
+     //   private List<ShowUserClass> m_oPersonList = null;
+
+        private SQLiteDataAdapter m_oDataAdapter = null;
+        private DataSet m_oDataSet = null;
+        private DataTable m_oDataTable = null;
+
+
+        public showUser(string group)
         {
             InitializeComponent();
+            InitBinding(group);
+
         }
+
+        private void InitBinding(string group)
+        {
+            SQLiteConnection oSQLiteConnection =
+                new SQLiteConnection("Data Source=BazaDanych.s3db");
+            SQLiteCommand oCommand = oSQLiteConnection.CreateCommand();
+
+           // oCommand.CommandText = "SELECT * FROM Person WHERE BloodGroup = "+'"+group+"'";
+                oCommand.CommandText = "SELECT * FROM Person WHERE BloodGroup = '"+group+"'";
+            m_oDataAdapter = new SQLiteDataAdapter(oCommand.CommandText,
+                oSQLiteConnection);
+            SQLiteCommandBuilder oCommandBuilder =
+                new SQLiteCommandBuilder(m_oDataAdapter);
+            m_oDataSet = new DataSet();
+            m_oDataAdapter.Fill(m_oDataSet);
+            m_oDataTable = m_oDataSet.Tables[0];
+            ShowUserList.DataContext = m_oDataTable.DefaultView;
+
+            //   0Rh− 	0Rh+ 	BRh− 	BRh+ 	ARh− 	ARh+ 	ABRh− 	ABRh+
+
+        }
+
     }
 }

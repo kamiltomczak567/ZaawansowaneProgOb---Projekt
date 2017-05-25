@@ -21,23 +21,18 @@ namespace Bank_krwi
     /// </summary>
     public partial class newUser : Window
     {
-        
+        private SQLiteDataAdapter m_oDataAdapter = null;
+        private DataSet m_oDataSet = null;
+        private DataTable m_oDataTable = null;
 
-
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        public newUser()
         {
-            string imie = imieBox.Text;
-            string nazwisko = nazwiskoBox.Text;
-            string wiek = wiekBox.Text;
-            string grupaKrwi = grupaKrwiBox.Text;
-            string plec = plecBox.Text;
-            string adres = adresBox.Text;
-            string telefon = telefonBox.Text;
+            InitializeComponent();
+            InitBinding();
+        }
 
-             SQLiteDataAdapter m_oDataAdapter = null;
-             DataSet m_oDataSet = null;
-             DataTable m_oDataTable = null;
-
+        private void InitBinding()
+        {
             SQLiteConnection oSQLiteConnection =
                 new SQLiteConnection("Data Source=BazaDanych.s3db");
             SQLiteCommand oCommand = oSQLiteConnection.CreateCommand();
@@ -50,6 +45,34 @@ namespace Bank_krwi
             m_oDataAdapter.Fill(m_oDataSet);
             m_oDataTable = m_oDataSet.Tables[0];
             lstItems.DataContext = m_oDataTable.DefaultView;
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+                      string imie = imieBox.Text;
+                       string nazwisko = nazwiskoBox.Text;
+                       string wiek = wiekBox.Text;
+                       string grupaKrwi = grupaKrwiBox.Text;
+                       string plec = plecBox.Text;
+                       string adres = adresBox.Text;
+                       string telefon = telefonBox.Text;
+
+                       /*   SQLiteDataAdapter m_oDataAdapter = null;
+                         DataSet m_oDataSet = null;
+                         DataTable m_oDataTable = null;
+
+                        SQLiteConnection oSQLiteConnection =
+                            new SQLiteConnection("Data Source=BazaDanych.s3db");
+                        SQLiteCommand oCommand = oSQLiteConnection.CreateCommand();
+                        oCommand.CommandText = "SELECT * FROM Person";
+                        m_oDataAdapter = new SQLiteDataAdapter(oCommand.CommandText,
+                            oSQLiteConnection);
+                        SQLiteCommandBuilder oCommandBuilder =
+                            new SQLiteCommandBuilder(m_oDataAdapter);
+                        m_oDataSet = new DataSet();
+                        m_oDataAdapter.Fill(m_oDataSet);
+                        m_oDataTable = m_oDataSet.Tables[0];
+                        lstItems.DataContext = m_oDataTable.DefaultView;*/
 
 
 
@@ -64,24 +87,26 @@ namespace Bank_krwi
             oDataRow[7] = telefon;
             m_oDataTable.Rows.Add(oDataRow);
             m_oDataAdapter.Update(m_oDataSet);
+
+
         }
 
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            SQLiteDataAdapter m_oDataAdapter = null;
-            DataSet m_oDataSet = null;
+            /*  SQLiteDataAdapter m_oDataAdapter = null;
+              DataSet m_oDataSet = null;
 
-            SQLiteConnection oSQLiteConnection =
-                new SQLiteConnection("Data Source=BazaDanych.s3db");
-            SQLiteCommand oCommand = oSQLiteConnection.CreateCommand();
-            oCommand.CommandText = "SELECT * FROM Person";
-            m_oDataAdapter = new SQLiteDataAdapter(oCommand.CommandText,
-                oSQLiteConnection);
-            SQLiteCommandBuilder oCommandBuilder =
-                new SQLiteCommandBuilder(m_oDataAdapter);
-            m_oDataSet = new DataSet();
-            m_oDataAdapter.Fill(m_oDataSet);
+              SQLiteConnection oSQLiteConnection =
+                  new SQLiteConnection("Data Source=BazaDanych.s3db");
+              SQLiteCommand oCommand = oSQLiteConnection.CreateCommand();
+              oCommand.CommandText = "SELECT * FROM Person";
+              m_oDataAdapter = new SQLiteDataAdapter(oCommand.CommandText,
+                  oSQLiteConnection);
+              SQLiteCommandBuilder oCommandBuilder =
+                  new SQLiteCommandBuilder(m_oDataAdapter);
+              m_oDataSet = new DataSet();
+              m_oDataAdapter.Fill(m_oDataSet);*/
 
 
             if (0 == lstItems.SelectedItems.Count)
@@ -98,9 +123,6 @@ namespace Bank_krwi
         {
         }
 
-        public newUser()
-        {
-            InitializeComponent();
-        }
+
     }
 }

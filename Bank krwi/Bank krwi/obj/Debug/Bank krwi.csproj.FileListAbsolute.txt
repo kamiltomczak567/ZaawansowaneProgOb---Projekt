@@ -23,3 +23,5 @@ D:\Projekt zaawansowane programownie obiektowe\Bank krwi\Bank krwi\obj\Debug\new
 D:\Projekt zaawansowane programownie obiektowe\Bank krwi\Bank krwi\obj\Debug\newUser.g.cs
 D:\Projekt zaawansowane programownie obiektowe\Bank krwi\Bank krwi\obj\Debug\showUser.baml
 D:\Projekt zaawansowane programownie obiektowe\Bank krwi\Bank krwi\obj\Debug\showUser.g.cs
+D:\Projekt zaawansowane programownie obiektowe\Bank krwi\Bank krwi\obj\Debug\showGroup.baml
+D:\Projekt zaawansowane programownie obiektowe\Bank krwi\Bank krwi\obj\Debug\showGroup.g.cs
