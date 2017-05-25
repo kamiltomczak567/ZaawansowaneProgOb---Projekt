@@ -14,7 +14,7 @@
                     <GridViewColumn>
                         <GridViewColumn.HeaderTemplate>
                             <DataTemplate >
-                                <TextBlock Text="Id" Margin="2" />
+                                <TextBlock Text="Id" Margin="2" Width="23" />
                             </DataTemplate>
                         </GridViewColumn.HeaderTemplate>
                         <GridViewColumn.CellTemplate>

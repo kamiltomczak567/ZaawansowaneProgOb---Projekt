@@ -25,3 +25,10 @@ D:\Projekt zaawansowane programownie obiektowe\Bank krwi\Bank krwi\obj\Debug\sho
 D:\Projekt zaawansowane programownie obiektowe\Bank krwi\Bank krwi\obj\Debug\showUser.g.cs
 D:\Projekt zaawansowane programownie obiektowe\Bank krwi\Bank krwi\obj\Debug\showGroup.baml
 D:\Projekt zaawansowane programownie obiektowe\Bank krwi\Bank krwi\obj\Debug\showGroup.g.cs
+D:\Projekt zaawansowane programownie obiektowe\Bank krwi\Bank krwi\obj\Debug\facebookPosts.baml
+D:\Projekt zaawansowane programownie obiektowe\Bank krwi\Bank krwi\obj\Debug\facebookPosts.g.cs
+D:\Projekt zaawansowane programownie obiektowe\Bank krwi\Bank krwi\bin\Debug\Facebook.dll
+D:\Projekt zaawansowane programownie obiektowe\Bank krwi\Bank krwi\bin\Debug\Newtonsoft.Json.dll
+D:\Projekt zaawansowane programownie obiektowe\Bank krwi\Bank krwi\bin\Debug\System.Net.Http.Formatting.dll
+D:\Projekt zaawansowane programownie obiektowe\Bank krwi\Bank krwi\bin\Debug\Facebook.xml
+D:\Projekt zaawansowane programownie obiektowe\Bank krwi\Bank krwi\bin\Debug\System.Net.Http.Formatting.xml

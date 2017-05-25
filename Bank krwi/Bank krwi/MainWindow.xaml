@@ -8,6 +8,7 @@
         <Button Content="Dodaj osobę do Banku krwi&#xD;&#xA;" HorizontalAlignment="Left" Margin="134,24,0,0" VerticalAlignment="Top" Width="298" Height="45" Click="Button_Click"/>
         <Button Content="Wyświetl dawców szukanej grupy krwi" HorizontalAlignment="Left" Margin="134,95,0,0" VerticalAlignment="Top" Width="298" Height="41" Click="Button_Click_2"/>
         <Button Content="Powiadom o zapotrzebowaniu na daną grupę krwii" HorizontalAlignment="Left" Margin="134,168,0,0" VerticalAlignment="Top" Width="298" Height="43" Click="Button_Click_1"/>
+        <Button Content="Sprawdź wpisy z naszego facebooka" HorizontalAlignment="Left" Margin="134,231,0,0" VerticalAlignment="Top" Width="298" Height="40" Click="Button_Click_3"/>
 
     </Grid>
 </Window>
