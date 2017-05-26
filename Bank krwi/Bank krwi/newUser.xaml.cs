@@ -26,6 +26,8 @@ namespace Bank_krwi
         private DataSet m_oDataSet = null;
         private DataTable m_oDataTable = null;
 
+        private IDonatorValidation donatorValidation = new DonatorValidationImplentation();
+
         public newUser()
         {
             InitializeComponent();
@@ -59,41 +61,11 @@ namespace Bank_krwi
             string telefon = telefonBox.Text;
 
             Donator donator = new Donator(imie, nazwisko, Int32.Parse(wiek), grupaKrwi, plec, adres, Int32.Parse(telefon));
-
-
-
             AddDonator(donator);
-
-
         }
 
         private void AddDonator(Donator donator) {
-            //string imie = imieBox.Text;
-            //string nazwisko = nazwiskoBox.Text;
-            //string wiek = wiekBox.Text;
-            //string grupaKrwi = comboGr.Text;
-            //string plec = plecBox.Text;
-            //string adres = adresBox.Text;
-            //string telefon = telefonBox.Text;
-
-            if(String.IsNullOrWhiteSpace(donator.Imie)) {
-                throw new Exception("Imie jest wymagane");
-            }
-            if(Regex.IsMatch(donator.Imie, @"^\d+$")) {
-                throw new Exception("Imie nie może być cyfrą");
-            }
-
-            if(String.IsNullOrWhiteSpace(donator.Nazwisko)) {
-                throw new Exception("Nazwisko jest wymagane");
-            }
-            if(Regex.IsMatch(donator.Nazwisko, @"^\d+$")) {
-                throw new Exception("Nazwisko nie może być cyfrą");
-            }
-
-            if(donator.Wiek <= 18 || donator.Wiek >= 65) {
-                throw new Exception("Wiek musi zawierać się w przedziale 18-65");
-            }
-
+            donatorValidation.AddDonatorValidate(donator);
 
             /*   SQLiteDataAdapter m_oDataAdapter = null;
               DataSet m_oDataSet = null;
@@ -111,8 +83,6 @@ namespace Bank_krwi
              m_oDataAdapter.Fill(m_oDataSet);
              m_oDataTable = m_oDataSet.Tables[0];
              lstItems.DataContext = m_oDataTable.DefaultView;*/
-
-
 
             DataRow oDataRow = m_oDataTable.NewRow();
             oDataRow[0] = m_oDataTable.Rows.Count + 1;

@@ -78,12 +78,9 @@ C:\Users\Gobo\Desktop\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\bin\Debug
 C:\Users\Gobo\Desktop\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\bin\Debug\EntityFramework.xml
 C:\Users\Gobo\Desktop\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Gobo\Desktop\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\bin\Debug\Facebook.xml
-C:\Users\Gobo\Desktop\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\bin\Debug\itextsharp.xml
 C:\Users\Gobo\Desktop\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\bin\Debug\nunit.framework.xml
 C:\Users\Gobo\Desktop\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\bin\Debug\System.Data.SQLite.xml
 C:\Users\Gobo\Desktop\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\bin\Debug\System.Data.SQLite.dll.config
-C:\Users\Gobo\Desktop\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\bin\Debug\System.Net.Http.Formatting.xml
-C:\Users\Gobo\Desktop\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\obj\Debug\Bank krwi.csprojResolveAssemblyReference.cache
 C:\Users\Gobo\Desktop\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\obj\Debug\facebookPosts.baml
 C:\Users\Gobo\Desktop\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\obj\Debug\MainWindow.baml
 C:\Users\Gobo\Desktop\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\obj\Debug\newUser.baml
