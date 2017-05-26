@@ -50,12 +50,6 @@ namespace Bank_krwi
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            AddDonator();
-
-       
-        }
-
-        private void AddDonator() {
             string imie = imieBox.Text;
             string nazwisko = nazwiskoBox.Text;
             string wiek = wiekBox.Text;
@@ -64,29 +58,40 @@ namespace Bank_krwi
             string adres = adresBox.Text;
             string telefon = telefonBox.Text;
 
-            if(String.IsNullOrWhiteSpace(imie)) {
+            Donator donator = new Donator(imie, nazwisko, Int32.Parse(wiek), grupaKrwi, plec, adres, Int32.Parse(telefon));
+
+
+
+            AddDonator(donator);
+
+
+        }
+
+        private void AddDonator(Donator donator) {
+            //string imie = imieBox.Text;
+            //string nazwisko = nazwiskoBox.Text;
+            //string wiek = wiekBox.Text;
+            //string grupaKrwi = comboGr.Text;
+            //string plec = plecBox.Text;
+            //string adres = adresBox.Text;
+            //string telefon = telefonBox.Text;
+
+            if(String.IsNullOrWhiteSpace(donator.Imie)) {
                 throw new Exception("Imie jest wymagane");
             }
-            if(Regex.IsMatch(imie, @"^\d+$")) {
+            if(Regex.IsMatch(donator.Imie, @"^\d+$")) {
                 throw new Exception("Imie nie może być cyfrą");
             }
 
-            if(String.IsNullOrWhiteSpace(nazwisko)) {
+            if(String.IsNullOrWhiteSpace(donator.Nazwisko)) {
                 throw new Exception("Nazwisko jest wymagane");
             }
-            if(Regex.IsMatch(imie, @"^\d+$")) {
+            if(Regex.IsMatch(donator.Nazwisko, @"^\d+$")) {
                 throw new Exception("Nazwisko nie może być cyfrą");
             }
 
-            if(!Regex.IsMatch(wiek, @"^\d+$")) {
-                throw new Exception("Wiek musi być liczbą");
-            }
-            if(Int32.Parse(wiek) <= 18 || Int32.Parse(wiek) >= 65) {
+            if(donator.Wiek <= 18 || donator.Wiek >= 65) {
                 throw new Exception("Wiek musi zawierać się w przedziale 18-65");
-            }
-
-            if(comboGr.SelectedIndex == 0) {
-                throw new Exception("Grupa krwi jest wymagana");
             }
 
 
@@ -111,13 +116,13 @@ namespace Bank_krwi
 
             DataRow oDataRow = m_oDataTable.NewRow();
             oDataRow[0] = m_oDataTable.Rows.Count + 1;
-            oDataRow[1] = imie;
-            oDataRow[2] = nazwisko;
-            oDataRow[3] = wiek;
-            oDataRow[4] = grupaKrwi;
-            oDataRow[5] = plec;
-            oDataRow[6] = adres;
-            oDataRow[7] = telefon;
+            oDataRow[1] = donator.Imie;
+            oDataRow[2] = donator.Nazwisko;
+            oDataRow[3] = donator.Wiek;
+            oDataRow[4] = donator.GrupaKrw;
+            oDataRow[5] = donator.Plec;
+            oDataRow[6] = donator.Adres;
+            oDataRow[7] = donator.Telefon;
             m_oDataTable.Rows.Add(oDataRow);
             m_oDataAdapter.Update(m_oDataSet);
         }

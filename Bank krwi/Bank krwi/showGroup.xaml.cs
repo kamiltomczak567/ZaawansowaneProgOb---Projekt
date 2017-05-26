@@ -21,6 +21,8 @@ namespace Bank_krwi
     /// </summary>
     public partial class showGroup : Window
     {
+        List<Donator> donators = new List<Donator>();
+
         public showGroup()
         {
             InitializeComponent();
@@ -30,6 +32,7 @@ namespace Bank_krwi
         {
             string a = "0Rh-";
             showUser showUser = new showUser(a);
+            readDonators(showUser);
             showUser.Show();
         }
 
@@ -37,6 +40,7 @@ namespace Bank_krwi
         {
             string a = "0Rh+";
             showUser showUser = new showUser(a);
+            readDonators(showUser);
             showUser.Show();
         }
 
@@ -44,6 +48,7 @@ namespace Bank_krwi
         {
             string a = "BRh+";
             showUser showUser = new showUser(a);
+            readDonators(showUser);
             showUser.Show();
         }
 
@@ -51,6 +56,7 @@ namespace Bank_krwi
         {
             string a = "BRh-";
             showUser showUser = new showUser(a);
+            readDonators(showUser);
             showUser.Show();
 
         }
@@ -59,6 +65,7 @@ namespace Bank_krwi
         {
             string a = "ARh+";
             showUser showUser = new showUser(a);
+            readDonators(showUser);
             showUser.Show();
         }
 
@@ -66,6 +73,7 @@ namespace Bank_krwi
         {
             string a = "ARh-";
             showUser showUser = new showUser(a);
+            readDonators(showUser);
             showUser.Show();
 
         }
@@ -74,6 +82,7 @@ namespace Bank_krwi
         {
             string a = "ABRh+";
             showUser showUser = new showUser(a);
+            readDonators(showUser);
             showUser.Show();
         }
 
@@ -81,7 +90,43 @@ namespace Bank_krwi
         {
             string a = "ABRh-";
             showUser showUser = new showUser(a);
+            readDonators(showUser);
             showUser.Show();
+        }
+
+        /// <summary>
+        /// Zapisuje wszystkich dawców krwi do listy
+        /// </summary>
+        /// <param name="showUser">dane o wybranych dawcach</param>
+        private void readDonators(showUser showUser) {
+            donators.Clear();
+            //for po wszystkich kolumnach z showUser
+            for(int i = 0; i < showUser.m_oDataTable.Rows.Count; i++) {
+                //dane o konkretnym dawcy jako lista obiektów
+                var zawartoscTabeli = showUser.m_oDataTable.Rows[i].ItemArray;
+
+                var imie = zawartoscTabeli[1].ToString();
+                var nazwisko = zawartoscTabeli[2].ToString();
+                //jeżeli podczas parsowania wystąpi błąd(np to nie jest liczba), to przypisuje wiek jako 0
+                int wiek;
+                try {
+                    wiek = Int32.Parse(zawartoscTabeli[3].ToString());
+                } catch(System.FormatException) {
+                    wiek = 0;
+                }
+                var grupaKrw = zawartoscTabeli[4].ToString();
+                var plec = zawartoscTabeli[5].ToString();
+                var adres = zawartoscTabeli[6].ToString();
+                int telefon;
+                try {
+                    telefon = Int32.Parse(zawartoscTabeli[7].ToString());
+                } catch(System.FormatException) {
+                    telefon = 0;
+                }
+
+                Donator donator = new Donator(imie, nazwisko, wiek, grupaKrw, plec, adres, telefon);
+                donators.Add(donator);
+            }
         }
 
         private void B_pdf_Click(object sender, RoutedEventArgs e)
@@ -90,12 +135,24 @@ namespace Bank_krwi
             PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("Test.pdf", FileMode.Create));
             doc.Open(); // otworz dokument
             //Zaawartosc dokumentu
-            Paragraph paragraph = new Paragraph("Proba pdfa");
-            doc.Add(paragraph);
+            foreach(var donator in donators) {
+                doc.Add(createParagraphFromDonator(donator));
+            }
 
             doc.Close();
-
         }
-        //0Rh− 	0Rh+ 	BRh− 	BRh+ 	ARh− 	ARh+ 	ABRh− 	ABRh+
+       
+        private Paragraph createParagraphFromDonator(Donator donator) {
+            String paragraphText = "";
+            paragraphText += donator.Imie + " ";
+            paragraphText += donator.Nazwisko + " ";
+            paragraphText += donator.Wiek + " ";
+            paragraphText += donator.GrupaKrw + " ";
+            paragraphText += donator.Plec + " ";
+            paragraphText += donator.Adres + " ";
+            paragraphText += donator.Telefon + " ";
+
+            return new Paragraph(paragraphText);
+        }
     }
 }

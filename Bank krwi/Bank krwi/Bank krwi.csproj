@@ -92,6 +92,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Donator.cs" />
     <Compile Include="FacebookData.cs" />
     <Compile Include="FacebookPost.cs" />
     <Compile Include="facebookPosts.xaml.cs">
