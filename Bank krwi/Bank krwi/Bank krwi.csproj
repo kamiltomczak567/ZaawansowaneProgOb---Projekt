@@ -43,6 +43,15 @@
     <Reference Include="Facebook">
       <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\..\Downloads\ZaawansowaneProgOb---Projekt-master\Bank krwi\Bank krwi\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa">
+      <HintPath>..\..\..\..\..\Downloads\ZaawansowaneProgOb---Projekt-master\Bank krwi\Bank krwi\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra">
+      <HintPath>..\..\..\..\..\Downloads\ZaawansowaneProgOb---Projekt-master\Bank krwi\Bank krwi\itextsharp.xtra.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
