@@ -52,7 +52,7 @@ namespace Bank_krwi
                       string imie = imieBox.Text;
                        string nazwisko = nazwiskoBox.Text;
                        string wiek = wiekBox.Text;
-                       string grupaKrwi = grupaKrwiBox.Text;
+                       string grupaKrwi = comboGr.Text;
                        string plec = plecBox.Text;
                        string adres = adresBox.Text;
                        string telefon = telefonBox.Text;
@@ -123,6 +123,25 @@ namespace Bank_krwi
         {
         }
 
+        private void ComboBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<string> data = new List<string>();
+            data.Add("0Rh-");
+            data.Add("0Rh+");
+            data.Add("ARh-");
+            data.Add("ARh+");
+            data.Add("BRh-");
+            data.Add("BRh+");
+            data.Add("ABRh-");
+            data.Add("ABRh+");
+            var combo = sender as ComboBox;
+            combo.ItemsSource = data;
+            combo.SelectedIndex = 0;
+        }
 
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
