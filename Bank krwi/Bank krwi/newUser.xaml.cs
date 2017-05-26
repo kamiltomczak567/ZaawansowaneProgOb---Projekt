@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.SQLite;
 using System.Data;
+using System.Text.RegularExpressions;
 
 namespace Bank_krwi
 {
@@ -49,30 +50,62 @@ namespace Bank_krwi
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-                      string imie = imieBox.Text;
-                       string nazwisko = nazwiskoBox.Text;
-                       string wiek = wiekBox.Text;
-                       string grupaKrwi = comboGr.Text;
-                       string plec = plecBox.Text;
-                       string adres = adresBox.Text;
-                       string telefon = telefonBox.Text;
+            AddDonator();
 
-                       /*   SQLiteDataAdapter m_oDataAdapter = null;
-                         DataSet m_oDataSet = null;
-                         DataTable m_oDataTable = null;
+       
+        }
 
-                        SQLiteConnection oSQLiteConnection =
-                            new SQLiteConnection("Data Source=BazaDanych.s3db");
-                        SQLiteCommand oCommand = oSQLiteConnection.CreateCommand();
-                        oCommand.CommandText = "SELECT * FROM Person";
-                        m_oDataAdapter = new SQLiteDataAdapter(oCommand.CommandText,
-                            oSQLiteConnection);
-                        SQLiteCommandBuilder oCommandBuilder =
-                            new SQLiteCommandBuilder(m_oDataAdapter);
-                        m_oDataSet = new DataSet();
-                        m_oDataAdapter.Fill(m_oDataSet);
-                        m_oDataTable = m_oDataSet.Tables[0];
-                        lstItems.DataContext = m_oDataTable.DefaultView;*/
+        private void AddDonator() {
+            string imie = imieBox.Text;
+            string nazwisko = nazwiskoBox.Text;
+            string wiek = wiekBox.Text;
+            string grupaKrwi = comboGr.Text;
+            string plec = plecBox.Text;
+            string adres = adresBox.Text;
+            string telefon = telefonBox.Text;
+
+            if(String.IsNullOrWhiteSpace(imie)) {
+                throw new Exception("Imie jest wymagane");
+            }
+            if(Regex.IsMatch(imie, @"^\d+$")) {
+                throw new Exception("Imie nie może być cyfrą");
+            }
+
+            if(String.IsNullOrWhiteSpace(nazwisko)) {
+                throw new Exception("Nazwisko jest wymagane");
+            }
+            if(Regex.IsMatch(imie, @"^\d+$")) {
+                throw new Exception("Nazwisko nie może być cyfrą");
+            }
+
+            if(!Regex.IsMatch(wiek, @"^\d+$")) {
+                throw new Exception("Wiek musi być liczbą");
+            }
+            if(Int32.Parse(wiek) <= 18 || Int32.Parse(wiek) >= 65) {
+                throw new Exception("Wiek musi zawierać się w przedziale 18-65");
+            }
+
+            if(comboGr.SelectedIndex == 0) {
+                throw new Exception("Grupa krwi jest wymagana");
+            }
+
+
+            /*   SQLiteDataAdapter m_oDataAdapter = null;
+              DataSet m_oDataSet = null;
+              DataTable m_oDataTable = null;
+
+             SQLiteConnection oSQLiteConnection =
+                 new SQLiteConnection("Data Source=BazaDanych.s3db");
+             SQLiteCommand oCommand = oSQLiteConnection.CreateCommand();
+             oCommand.CommandText = "SELECT * FROM Person";
+             m_oDataAdapter = new SQLiteDataAdapter(oCommand.CommandText,
+                 oSQLiteConnection);
+             SQLiteCommandBuilder oCommandBuilder =
+                 new SQLiteCommandBuilder(m_oDataAdapter);
+             m_oDataSet = new DataSet();
+             m_oDataAdapter.Fill(m_oDataSet);
+             m_oDataTable = m_oDataSet.Tables[0];
+             lstItems.DataContext = m_oDataTable.DefaultView;*/
 
 
 
@@ -87,8 +120,6 @@ namespace Bank_krwi
             oDataRow[7] = telefon;
             m_oDataTable.Rows.Add(oDataRow);
             m_oDataAdapter.Update(m_oDataSet);
-
-
         }
 
 
@@ -126,6 +157,7 @@ namespace Bank_krwi
         private void ComboBox_Loaded(object sender, RoutedEventArgs e)
         {
             List<string> data = new List<string>();
+            data.Add("Wybierz");
             data.Add("0Rh-");
             data.Add("0Rh+");
             data.Add("ARh-");
