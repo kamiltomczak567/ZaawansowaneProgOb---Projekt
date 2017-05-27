@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.SQLite;
 using System.Data;
+using System.Text.RegularExpressions;
 
 namespace Bank_krwi
 {
@@ -24,6 +25,8 @@ namespace Bank_krwi
         private SQLiteDataAdapter m_oDataAdapter = null;
         private DataSet m_oDataSet = null;
         private DataTable m_oDataTable = null;
+
+        private IDonatorValidation donatorValidation = new DonatorValidationImplentation();
 
         public newUser()
         {
@@ -49,46 +52,49 @@ namespace Bank_krwi
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-                      string imie = imieBox.Text;
-                       string nazwisko = nazwiskoBox.Text;
-                       string wiek = wiekBox.Text;
-                       string grupaKrwi = grupaKrwiBox.Text;
-                       string plec = plecBox.Text;
-                       string adres = adresBox.Text;
-                       string telefon = telefonBox.Text;
+            string imie = imieBox.Text;
+            string nazwisko = nazwiskoBox.Text;
+            string wiek = wiekBox.Text;
+            string grupaKrwi = comboGr.Text;
+            string plec = plecBox.Text;
+            string adres = adresBox.Text;
+            string telefon = telefonBox.Text;
 
-                       /*   SQLiteDataAdapter m_oDataAdapter = null;
-                         DataSet m_oDataSet = null;
-                         DataTable m_oDataTable = null;
+            Donator donator = new Donator(imie, nazwisko, Int32.Parse(wiek), grupaKrwi, plec, adres, Int32.Parse(telefon));
+            AddDonator(donator);
+        }
 
-                        SQLiteConnection oSQLiteConnection =
-                            new SQLiteConnection("Data Source=BazaDanych.s3db");
-                        SQLiteCommand oCommand = oSQLiteConnection.CreateCommand();
-                        oCommand.CommandText = "SELECT * FROM Person";
-                        m_oDataAdapter = new SQLiteDataAdapter(oCommand.CommandText,
-                            oSQLiteConnection);
-                        SQLiteCommandBuilder oCommandBuilder =
-                            new SQLiteCommandBuilder(m_oDataAdapter);
-                        m_oDataSet = new DataSet();
-                        m_oDataAdapter.Fill(m_oDataSet);
-                        m_oDataTable = m_oDataSet.Tables[0];
-                        lstItems.DataContext = m_oDataTable.DefaultView;*/
+        private void AddDonator(Donator donator) {
+            donatorValidation.AddDonatorValidate(donator);
 
+            /*   SQLiteDataAdapter m_oDataAdapter = null;
+              DataSet m_oDataSet = null;
+              DataTable m_oDataTable = null;
 
+             SQLiteConnection oSQLiteConnection =
+                 new SQLiteConnection("Data Source=BazaDanych.s3db");
+             SQLiteCommand oCommand = oSQLiteConnection.CreateCommand();
+             oCommand.CommandText = "SELECT * FROM Person";
+             m_oDataAdapter = new SQLiteDataAdapter(oCommand.CommandText,
+                 oSQLiteConnection);
+             SQLiteCommandBuilder oCommandBuilder =
+                 new SQLiteCommandBuilder(m_oDataAdapter);
+             m_oDataSet = new DataSet();
+             m_oDataAdapter.Fill(m_oDataSet);
+             m_oDataTable = m_oDataSet.Tables[0];
+             lstItems.DataContext = m_oDataTable.DefaultView;*/
 
             DataRow oDataRow = m_oDataTable.NewRow();
             oDataRow[0] = m_oDataTable.Rows.Count + 1;
-            oDataRow[1] = imie;
-            oDataRow[2] = nazwisko;
-            oDataRow[3] = wiek;
-            oDataRow[4] = grupaKrwi;
-            oDataRow[5] = plec;
-            oDataRow[6] = adres;
-            oDataRow[7] = telefon;
+            oDataRow[1] = donator.Imie;
+            oDataRow[2] = donator.Nazwisko;
+            oDataRow[3] = donator.Wiek;
+            oDataRow[4] = donator.GrupaKrw;
+            oDataRow[5] = donator.Plec;
+            oDataRow[6] = donator.Adres;
+            oDataRow[7] = donator.Telefon;
             m_oDataTable.Rows.Add(oDataRow);
             m_oDataAdapter.Update(m_oDataSet);
-
-
         }
 
 
@@ -123,6 +129,26 @@ namespace Bank_krwi
         {
         }
 
+        private void ComboBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<string> data = new List<string>();
+            data.Add("Wybierz");
+            data.Add("0Rh-");
+            data.Add("0Rh+");
+            data.Add("ARh-");
+            data.Add("ARh+");
+            data.Add("BRh-");
+            data.Add("BRh+");
+            data.Add("ABRh-");
+            data.Add("ABRh+");
+            var combo = sender as ComboBox;
+            combo.ItemsSource = data;
+            combo.SelectedIndex = 0;
+        }
 
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

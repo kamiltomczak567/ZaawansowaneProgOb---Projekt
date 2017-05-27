@@ -24,9 +24,9 @@ namespace Bank_krwi
     {
      //   private List<ShowUserClass> m_oPersonList = null;
 
-        private SQLiteDataAdapter m_oDataAdapter = null;
-        private DataSet m_oDataSet = null;
-        private DataTable m_oDataTable = null;
+        public SQLiteDataAdapter m_oDataAdapter = null;
+        public DataSet m_oDataSet = null;
+        public DataTable m_oDataTable = null;
 
 
         public showUser(string group)
