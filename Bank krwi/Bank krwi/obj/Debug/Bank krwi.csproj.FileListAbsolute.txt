@@ -10,9 +10,7 @@ C:\Users\Piotrek\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\bin\Debug\Syst
 C:\Users\Piotrek\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\bin\Debug\EntityFramework.xml
 C:\Users\Piotrek\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Piotrek\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\bin\Debug\Facebook.xml
-C:\Users\Piotrek\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\bin\Debug\itextsharp.xml
 C:\Users\Piotrek\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\bin\Debug\System.Data.SQLite.xml
-C:\Users\Piotrek\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\Piotrek\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\obj\Debug\Bank krwi.csprojResolveAssemblyReference.cache
 C:\Users\Piotrek\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\obj\Debug\facebookPosts.baml
 C:\Users\Piotrek\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\obj\Debug\MainWindow.baml
@@ -98,3 +96,5 @@ C:\Users\Gobo\Desktop\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\obj\Debug
 C:\Users\Gobo\Desktop\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\obj\Debug\Bank krwi.csproj.GenerateResource.Cache
 C:\Users\Gobo\Desktop\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\obj\Debug\Bank krwi.exe
 C:\Users\Gobo\Desktop\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\obj\Debug\Bank krwi.pdb
+C:\Users\Piotrek\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\bin\Debug\nunit.framework.dll
+C:\Users\Piotrek\ZaawansowaneProgOb---Projekt\Bank krwi\Bank krwi\bin\Debug\nunit.framework.xml

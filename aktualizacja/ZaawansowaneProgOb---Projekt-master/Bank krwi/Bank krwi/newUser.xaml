@@ -140,19 +140,19 @@
             <Button Content="Usuń" x:Name="btnDelete" Margin="5"
                 Click="btnDelete_Click" />
         </WrapPanel>
-        <TextBox x:Name="imieBox" HorizontalAlignment="Left" Height="23" Margin="68,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="nazwiskoBox" HorizontalAlignment="Left" Height="23" Margin="68,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="wiekBox" HorizontalAlignment="Left" Height="23" Margin="68,253,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="plecBox" HorizontalAlignment="Left" Height="23" Margin="253,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="adresBox" HorizontalAlignment="Left" Height="23" Margin="253,253,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="telefonBox" HorizontalAlignment="Left" Height="23" Margin="426,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="40,188,0,0" TextWrapping="Wrap" Text="Imie" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="18,225,0,0" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="37,256,0,0" TextWrapping="Wrap" Text="Wiek" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="191,188,0,0" TextWrapping="Wrap" Text="Grupa krwi" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="227,225,0,0" TextWrapping="Wrap" Text="Plec" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="218,256,0,0" TextWrapping="Wrap" Text="Adres" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="382,188,0,0" TextWrapping="Wrap" Text="Telefon" VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboGr" HorizontalAlignment="Left" Margin="253,186,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox_SelectionChanged" Loaded="ComboBox_Loaded" IsEditable="True" IsReadOnly="True"/>
+        <TextBox x:Name="imieBox" HorizontalAlignment="Left" Height="23" Margin="68,0,0,94" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120" IsManipulationEnabled="True"/>
+        <TextBox x:Name="nazwiskoBox" HorizontalAlignment="Left" Height="23" Margin="68,0,0,57" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120"/>
+        <TextBox x:Name="wiekBox" HorizontalAlignment="Left" Height="23" Margin="68,0,0,26" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120"/>
+        <TextBox x:Name="plecBox" HorizontalAlignment="Left" Height="23" Margin="253,0,0,57" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120"/>
+        <TextBox x:Name="adresBox" HorizontalAlignment="Left" Height="23" Margin="253,0,0,26" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120"/>
+        <TextBox x:Name="telefonBox" HorizontalAlignment="Left" Height="23" Margin="426,0,0,94" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="40,0,0,98" TextWrapping="Wrap" Text="Imie" VerticalAlignment="Bottom"/>
+        <TextBlock HorizontalAlignment="Left" Margin="18,0,0,61" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Bottom"/>
+        <TextBlock HorizontalAlignment="Left" Margin="37,0,0,30" TextWrapping="Wrap" Text="Wiek" VerticalAlignment="Bottom"/>
+        <TextBlock HorizontalAlignment="Left" Margin="191,0,0,98" TextWrapping="Wrap" Text="Grupa krwi" VerticalAlignment="Bottom"/>
+        <TextBlock HorizontalAlignment="Left" Margin="227,0,0,61" TextWrapping="Wrap" Text="Plec" VerticalAlignment="Bottom"/>
+        <TextBlock HorizontalAlignment="Left" Margin="218,0,0,30" TextWrapping="Wrap" Text="Adres" VerticalAlignment="Bottom"/>
+        <TextBlock HorizontalAlignment="Left" Margin="382,0,0,98" TextWrapping="Wrap" Text="Telefon" VerticalAlignment="Bottom"/>
+        <ComboBox x:Name="comboGr" HorizontalAlignment="Left" Margin="253,0,0,94" VerticalAlignment="Bottom" Width="120" SelectionChanged="comboBox_SelectionChanged" Loaded="ComboBox_Loaded" IsEditable="True" IsReadOnly="True"/>
     </Grid>
 </Window>
