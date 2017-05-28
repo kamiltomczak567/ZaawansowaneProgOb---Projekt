@@ -17,6 +17,7 @@ using System.Data;
 using System.Net;
 using System.IO;
 using Newtonsoft.Json;
+using System.Threading;
 
 
 
@@ -31,6 +32,8 @@ namespace Bank_krwi
         {
             InitializeComponent();
         }
+
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

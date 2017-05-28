@@ -138,3 +138,5 @@ D:\Projekt zaawansowane programownie obiektowe\aktualizacja\ZaawansowaneProgOb--
 D:\Projekt zaawansowane programownie obiektowe\aktualizacja\ZaawansowaneProgOb---Projekt-master\Bank krwi\Bank krwi\obj\Debug\Bank krwi.csproj.GenerateResource.Cache
 D:\Projekt zaawansowane programownie obiektowe\aktualizacja\ZaawansowaneProgOb---Projekt-master\Bank krwi\Bank krwi\obj\Debug\targerPlaces.baml
 D:\Projekt zaawansowane programownie obiektowe\aktualizacja\ZaawansowaneProgOb---Projekt-master\Bank krwi\Bank krwi\obj\Debug\targerPlaces.g.cs
+D:\Projekt zaawansowane programownie obiektowe\aktualizacja\ZaawansowaneProgOb---Projekt-master\Bank krwi\Bank krwi\obj\Debug\splashScreen.baml
+D:\Projekt zaawansowane programownie obiektowe\aktualizacja\ZaawansowaneProgOb---Projekt-master\Bank krwi\Bank krwi\obj\Debug\splashScreen.g.cs

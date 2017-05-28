@@ -3,6 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="facebookPosts" Height="435.821" Width="532.836">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Photos/f.png"/>
+        </Grid.Background>
         <Grid x:Name="PostGrid" Margin="45,83,0,73">
             <TextBlock Margin="-10,-34,10,34"><Run Text="Najnowszy post na Facebooku"/></TextBlock>
             <Border HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="Black" BorderThickness="2" Height="251" Width="483" Margin="-13,-12,0,0" />
