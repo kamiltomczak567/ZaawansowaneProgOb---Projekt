@@ -157,31 +157,21 @@
             <Button Content="Aktualizuj ilosc oddanej krwi" x:Name="btnEdit" Margin="5"
             	Click="btnEdit_Click" />
         </WrapPanel>
-        <TextBox x:Name="imieBox" HorizontalAlignment="Left" Height="23" Margin="68,0,0,94" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120" IsManipulationEnabled="True"/>
-        <TextBox x:Name="nazwiskoBox" HorizontalAlignment="Left" Height="23" Margin="68,0,0,57" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120"/>
-        <TextBox x:Name="wiekBox" HorizontalAlignment="Left" Height="23" Margin="68,0,0,26" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120"/>
-        <TextBox x:Name="plecBox" HorizontalAlignment="Left" Height="23" Margin="253,0,0,57" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120"/>
-<<<<<<< HEAD
-        <TextBox x:Name="adresBox" HorizontalAlignment="Left" Height="23" Margin="426,0,0,61" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120"/>
-=======
-        <TextBox x:Name="adresBox" HorizontalAlignment="Left" Height="23" Margin="253,0,0,26" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120"/>
->>>>>>> 911adb680419c154ecdcd1c6ea80fb6b496adb38
-        <TextBox x:Name="telefonBox" HorizontalAlignment="Left" Height="23" Margin="426,0,0,94" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="40,0,0,98" TextWrapping="Wrap" Text="Imie" VerticalAlignment="Bottom"/>
-        <TextBlock HorizontalAlignment="Left" Margin="18,0,0,61" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Bottom"/>
-        <TextBlock HorizontalAlignment="Left" Margin="37,0,0,30" TextWrapping="Wrap" Text="Wiek" VerticalAlignment="Bottom"/>
-        <TextBlock HorizontalAlignment="Left" Margin="191,0,0,98" TextWrapping="Wrap" Text="Grupa krwi" VerticalAlignment="Bottom"/>
-        <TextBlock HorizontalAlignment="Left" Margin="227,0,0,61" TextWrapping="Wrap" Text="Plec" VerticalAlignment="Bottom"/>
-<<<<<<< HEAD
-        <TextBlock HorizontalAlignment="Left" Margin="396,0,0,68" TextWrapping="Wrap" Text="Adres" VerticalAlignment="Bottom"/>
-        <TextBlock HorizontalAlignment="Left" Margin="382,0,0,98" TextWrapping="Wrap" Text="Telefon" VerticalAlignment="Bottom"/>
-        <ComboBox x:Name="comboGr" HorizontalAlignment="Left" Margin="253,0,0,94" VerticalAlignment="Bottom" Width="120" SelectionChanged="comboBox_SelectionChanged" Loaded="ComboBox_Loaded" IsEditable="True" IsReadOnly="True"/>
-        <TextBox x:Name="oddanaKrewBox" HorizontalAlignment="Left" Height="23" Margin="253,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="193,0,0,26" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="60" Height="20"><Run Language="pl-pl" Text="Il.odd.krwi"/></TextBlock>
-=======
-        <TextBlock HorizontalAlignment="Left" Margin="218,0,0,30" TextWrapping="Wrap" Text="Adres" VerticalAlignment="Bottom"/>
-        <TextBlock HorizontalAlignment="Left" Margin="382,0,0,98" TextWrapping="Wrap" Text="Telefon" VerticalAlignment="Bottom"/>
-        <ComboBox x:Name="comboGr" HorizontalAlignment="Left" Margin="253,0,0,94" VerticalAlignment="Bottom" Width="120" SelectionChanged="comboBox_SelectionChanged" Loaded="ComboBox_Loaded" IsEditable="True" IsReadOnly="True"/>
->>>>>>> 911adb680419c154ecdcd1c6ea80fb6b496adb38
+        <TextBox x:Name="imieBox" HorizontalAlignment="Left" Height="23" Margin="10,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="nazwiskoBox" HorizontalAlignment="Left" Height="23" Margin="10,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="wiekBox" HorizontalAlignment="Left" Height="23" Margin="10,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="plecBox" HorizontalAlignment="Left" Height="23" Margin="259,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="adresBox" HorizontalAlignment="Left" Height="23" Margin="259,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="telefonBox" HorizontalAlignment="Left" Height="23" Margin="259,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="oddanaKrewBox" HorizontalAlignment="Left" Height="23" Margin="259,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="comboGr" HorizontalAlignment="Left" Margin="10,0,0,25" VerticalAlignment="Bottom" Width="120" SelectionChanged="comboBox_SelectionChanged" Loaded="ComboBox_Loaded" IsEditable="True" IsReadOnly="True" Height="23"/>
+        <Label Content="Imie" HorizontalAlignment="Left" Margin="130,168,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="130,193,0,0" VerticalAlignment="Top"/>
+        <Label Content="Wiek" HorizontalAlignment="Left" Margin="130,224,0,0" VerticalAlignment="Top" Height="23"/>
+        <Label Content="Grupa krwi" HorizontalAlignment="Left" Margin="130,247,0,0" VerticalAlignment="Top" Height="29"/>
+        <Label Content="Plec" HorizontalAlignment="Left" Margin="384,168,0,0" VerticalAlignment="Top"/>
+        <Label Content="Adres" HorizontalAlignment="Left" Margin="384,199,0,0" VerticalAlignment="Top"/>
+        <Label Content="Telefon" HorizontalAlignment="Left" Margin="384,224,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ilosc oddanej krwi" HorizontalAlignment="Left" Margin="384,250,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

@@ -13,9 +13,9 @@ namespace Bank_krwi {
         public String Plec { get; private set; }
         public String Adres { get; private set; }
         public Int32 Telefon { get; private set; }
-        public float IloscOddanejKrwi { get; private set; }
+        public String IloscOddanejKrwi { get; private set; }
 
-        public Donator(String imie, String nazwisko, Int32 wiek, String grupaKrw, String plec, String adres, Int32 telefon, float iloscKrwii) {
+        public Donator(String imie, String nazwisko, Int32 wiek, String grupaKrw, String plec, String adres, Int32 telefon, String iloscKrwii) {
             this.Imie = imie;
             this.Nazwisko = nazwisko;
             this.Wiek = wiek;

@@ -61,7 +61,7 @@ namespace Bank_krwi
             string telefon = telefonBox.Text;
             string oddanaKrew = oddanaKrewBox.Text;
 
-            Donator donator = new Donator(imie, nazwisko, Int32.Parse(wiek), grupaKrwi, plec, adres, Int32.Parse(telefon),float.Parse(oddanaKrew));
+            Donator donator = new Donator(imie, nazwisko, Int32.Parse(wiek), grupaKrwi, plec, adres, Int32.Parse(telefon),oddanaKrew);
             AddDonator(donator);
         }
 
