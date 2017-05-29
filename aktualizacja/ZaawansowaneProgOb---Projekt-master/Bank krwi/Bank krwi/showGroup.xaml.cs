@@ -123,8 +123,9 @@ namespace Bank_krwi
                 } catch(System.FormatException) {
                     telefon = 0;
                 }
+                float iloscKrwii = float.Parse(zawartoscTabeli[8].ToString());
 
-                Donator donator = new Donator(imie, nazwisko, wiek, grupaKrw, plec, adres, telefon);
+                Donator donator = new Donator(imie, nazwisko, wiek, grupaKrw, plec, adres, telefon,iloscKrwii);
                 donators.Add(donator);
             }
         }

@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Bank_krwi.showPlaces"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="showPlaces" Height="357" Width="489">
+        Title="Nasze oddziały" Height="357" Width="489" ResizeMode="NoResize">
     <Grid Margin="10,0,0,5">
         <Grid.RowDefinitions>
             <RowDefinition Height="132*"/>

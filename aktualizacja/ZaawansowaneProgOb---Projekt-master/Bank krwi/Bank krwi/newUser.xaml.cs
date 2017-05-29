@@ -59,8 +59,9 @@ namespace Bank_krwi
             string plec = plecBox.Text;
             string adres = adresBox.Text;
             string telefon = telefonBox.Text;
+            string oddanaKrew = oddanaKrewBox.Text;
 
-            Donator donator = new Donator(imie, nazwisko, Int32.Parse(wiek), grupaKrwi, plec, adres, Int32.Parse(telefon));
+            Donator donator = new Donator(imie, nazwisko, Int32.Parse(wiek), grupaKrwi, plec, adres, Int32.Parse(telefon),float.Parse(oddanaKrew));
             AddDonator(donator);
         }
 
@@ -93,8 +94,73 @@ namespace Bank_krwi
             oDataRow[5] = donator.Plec;
             oDataRow[6] = donator.Adres;
             oDataRow[7] = donator.Telefon;
+            oDataRow[8] = donator.IloscOddanejKrwi;
             m_oDataTable.Rows.Add(oDataRow);
             m_oDataAdapter.Update(m_oDataSet);
+        }
+
+        private void EditDonator(Donator donator)
+        {
+            donatorValidation.AddDonatorValidate(donator);
+
+            DataRow oDataRow = m_oDataTable.NewRow();
+            oDataRow[0] = m_oDataTable.Rows.Count + 1;
+            oDataRow[1] = donator.Imie;
+            oDataRow[2] = donator.Nazwisko;
+            oDataRow[3] = donator.Wiek;
+            oDataRow[4] = donator.GrupaKrw;
+            oDataRow[5] = donator.Plec;
+            oDataRow[6] = donator.Adres;
+            oDataRow[7] = donator.Telefon;
+            oDataRow.EndEdit();
+            m_oDataAdapter.Update(m_oDataSet);
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+       /*     
+            if (0 == lstItems.SelectedItems.Count)
+            {
+                return;
+            }
+            DataRow oDataRow = ((DataRowView)lstItems.SelectedItem).Row;
+            oDataRow.BeginEdit();
+            string imie = imieBox.Text;
+            string nazwisko = nazwiskoBox.Text;
+            string wiek = wiekBox.Text;
+            string grupaKrwi = comboGr.Text;
+            string plec = plecBox.Text;
+            string adres = adresBox.Text;
+            string telefon = telefonBox.Text;
+            string oddanaKrew = oddanaKrewBox.Text;
+
+            Donator donator = new Donator(imie, nazwisko, Int32.Parse(wiek), grupaKrwi, plec, adres, Int32.Parse(telefon), float.Parse(oddanaKrew));
+            EditDonator(donator);*/
+            string imie = imieBox.Text;
+            string nazwisko = nazwiskoBox.Text;
+            string wiek = wiekBox.Text;
+            string grupaKrwi = comboGr.Text;
+            string plec = plecBox.Text;
+            string adres = adresBox.Text;
+            string telefon = telefonBox.Text;
+            string oddanaKrew = oddanaKrewBox.Text;
+
+                if (0 == lstItems.SelectedItems.Count)
+                    {
+                        return;
+                    }
+                    DataRow oDataRow = ((DataRowView)lstItems.SelectedItem).Row;
+                    oDataRow.BeginEdit();
+                 //   oDataRow[1] = imie;
+                 //   oDataRow[2] = nazwisko;
+                 //   oDataRow[3] = wiek;
+                  //  oDataRow[4] = grupaKrwi;
+                  //  oDataRow[5] = plec;
+                  //  oDataRow[6] = adres;
+                  //  oDataRow[7] = telefon;
+                    oDataRow[8] = oddanaKrew;
+                    oDataRow.EndEdit();
+                    m_oDataAdapter.Update(m_oDataSet);
         }
 
 

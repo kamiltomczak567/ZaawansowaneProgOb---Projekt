@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Bank_krwi.showGroup"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Window1" Height="373.707" Width="549.569">
+        Title="Raporty" Height="373.707" Width="549.569">
     <Grid Margin="0,10,2,-20">
         <Button Content="0RH-" HorizontalAlignment="Left" Margin="43,29,0,0" VerticalAlignment="Top" Width="103" Height="39" Click="Click_0Rh0"/>
         <Button Content="0RH+" HorizontalAlignment="Left" Margin="43,96,0,0" VerticalAlignment="Top" Width="103" Height="39" Click="Click_0Rh1"/>
