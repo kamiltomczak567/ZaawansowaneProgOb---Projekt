@@ -104,9 +104,9 @@ namespace Bank_krwi
             for(int i = 0; i < showUser.m_oDataTable.Rows.Count; i++) {
                 //dane o konkretnym dawcy jako lista obiektów
                 var zawartoscTabeli = showUser.m_oDataTable.Rows[i].ItemArray;
-
                 var imie = zawartoscTabeli[1].ToString();
                 var nazwisko = zawartoscTabeli[2].ToString();
+
                 //jeżeli podczas parsowania wystąpi błąd(np to nie jest liczba), to przypisuje wiek jako 0
                 int wiek;
                 try {
@@ -125,7 +125,7 @@ namespace Bank_krwi
                 }
                 var iloscKrwii = zawartoscTabeli[8].ToString();
 
-                Donator donator = new Donator(imie, nazwisko, wiek, grupaKrw, plec, adres, telefon,iloscKrwii);
+                Donator donator = new Donator(imie, nazwisko, wiek, grupaKrw, plec, adres, telefon,iloscKrwii); // stwórz donatora przypisujac mu wszystkie parametry
                 donators.Add(donator);
             }
         }
@@ -133,14 +133,14 @@ namespace Bank_krwi
         private void B_pdf_Click(object sender, RoutedEventArgs e)
         {
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
-            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("Test.pdf", FileMode.Create));
+            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("grupy_krwi.pdf", FileMode.Create));
             doc.Open(); // otworz dokument
             //Zaawartosc dokumentu
             foreach(var donator in donators) {
-                doc.Add(createParagraphFromDonator(donator));
+                doc.Add(createParagraphFromDonator(donator)); // Dodaj zawartosc kadzego "donatora" do pdf
             }
 
-            doc.Close();
+            doc.Close(); // zamknij dokument
         }
        
         private Paragraph createParagraphFromDonator(Donator donator) {

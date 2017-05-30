@@ -12,7 +12,7 @@
         <Button Content="ABRH-" HorizontalAlignment="Left" Margin="342,158,0,0" VerticalAlignment="Top" Width="103" Height="39" Click="Click_ABRh0"/>
         <Button Content="ABRH+" HorizontalAlignment="Left" Margin="342,220,0,0" VerticalAlignment="Top" Width="103" Height="39" Click="Click_ABRh1"/>
        
-        <Button x:Name="B_pdf" Content="Wyswietl PDFa" HorizontalAlignment="Left" Height="39" Margin="186,29,0,0" VerticalAlignment="Top" Width="116" Click="B_pdf_Click"/>
+        <Button x:Name="Btn_pdf" Content="Stwórz PDFa" HorizontalAlignment="Left" Height="39" Margin="186,29,0,0" VerticalAlignment="Top" Width="116" Click="B_pdf_Click"/>
 
     </Grid>
 </Window>

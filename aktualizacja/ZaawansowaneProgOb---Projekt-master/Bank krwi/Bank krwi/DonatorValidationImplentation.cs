@@ -13,7 +13,7 @@ namespace Bank_krwi {
             if(String.IsNullOrWhiteSpace(donator.Imie)) {
                 throw new ArgumentNullException("Imie jest wymagane");
             }
-            if(donator.Imie.Any(char.IsDigit)) {
+            if(donator.Imie.Any(char.IsDigit)) { // sprawdza, czy string zawiera jakąś cyfrę
                 throw new FormatException("Imie nie może być cyfrą");
             }
 
