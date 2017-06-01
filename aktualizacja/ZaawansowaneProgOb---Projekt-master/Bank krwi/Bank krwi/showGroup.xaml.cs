@@ -103,9 +103,15 @@ namespace Bank_krwi
             //for po wszystkich kolumnach z showUser
             for(int i = 0; i < showUser.m_oDataTable.Rows.Count; i++) {
                 //dane o konkretnym dawcy jako lista obiektów
+<<<<<<< HEAD
                 var ZawartoscTabeli = showUser.m_oDataTable.Rows[i].ItemArray;
                 var Imie = ZawartoscTabeli[1].ToString();
                 var Nazwisko = ZawartoscTabeli[2].ToString();
+=======
+                var zawartoscTabeli = showUser.m_oDataTable.Rows[i].ItemArray;
+                var imie = zawartoscTabeli[1].ToString();
+                var nazwisko = zawartoscTabeli[2].ToString();
+>>>>>>> 095e9f74102788fcb7d90c753b4243613454c1ef
 
                 //jeżeli podczas parsowania wystąpi błąd(np to nie jest liczba), to przypisuje wiek jako 0
                 int wiek;
@@ -125,7 +131,11 @@ namespace Bank_krwi
                 }
                 var iloscKrwii = ZawartoscTabeli[8].ToString();
 
+<<<<<<< HEAD
                 Donator donator = new Donator(Imie, Nazwisko, wiek, GrupaKrw, Plec, Adres, Telefon,iloscKrwii); // stwórz donatora przypisujac mu wszystkie parametry
+=======
+                Donator donator = new Donator(imie, nazwisko, wiek, grupaKrw, plec, adres, telefon,iloscKrwii); // stwórz donatora przypisujac mu wszystkie parametry
+>>>>>>> 095e9f74102788fcb7d90c753b4243613454c1ef
                 donators.Add(donator);
             }
         }
@@ -137,7 +147,11 @@ namespace Bank_krwi
             doc.Open(); // otworz dokument
             //Zaawartosc dokumentu
             foreach(var donator in donators) {
+<<<<<<< HEAD
                 doc.Add(CreateParagraphFromDonator(donator)); // Dodaj zawartosc kadzego "donatora" do pdf
+=======
+                doc.Add(createParagraphFromDonator(donator)); // Dodaj zawartosc kadzego "donatora" do pdf
+>>>>>>> 095e9f74102788fcb7d90c753b4243613454c1ef
             }
 
             doc.Close(); // zamknij dokument

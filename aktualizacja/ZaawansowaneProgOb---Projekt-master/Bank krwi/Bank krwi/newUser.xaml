@@ -154,11 +154,19 @@
             <Button Content="Dodaj" x:Name="btnAdd" Margin="5"
 				Click="Btn_Add_Click" />
             <Button Content="Usuń" x:Name="btnDelete" Margin="5"
+<<<<<<< HEAD
 				Click="Btn_Delete_Click" />
             <Button Content="Aktualizuj dane" x:Name="btnEdit" Margin="5"
 				Click="Btn_Edit_Click" />
             <TextBox x:Name="bloodToGive" Height="23" TextWrapping="Wrap" Text="0" Width="120" TextChanged="TextBox_TextChanged"/>
             <Button x:Name="addBloodBtn" Content="Dodaj krew" Width="75" Click="Btn_AddBloodClick"/>
+=======
+				Click="btnDelete_Click" />
+            <Button Content="Aktualizuj dane" x:Name="btnEdit" Margin="5"
+				Click="btnEdit_Click" />
+            <TextBox x:Name="bloodToGive" Height="23" TextWrapping="Wrap" Text="0" Width="120" TextChanged="TextBox_TextChanged"/>
+            <Button x:Name="addBloodBtn" Content="Dodaj krew" Width="75" Click="addBloodBtn_Click"/>
+>>>>>>> 095e9f74102788fcb7d90c753b4243613454c1ef
         </WrapPanel>
         <TextBox x:Name="ImieBox" HorizontalAlignment="Left" Height="23" Margin="10,0,0,111" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120"/>
         <TextBox x:Name="NazwiskoBox" HorizontalAlignment="Left" Height="23" Margin="10,0,0,83" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120"/>

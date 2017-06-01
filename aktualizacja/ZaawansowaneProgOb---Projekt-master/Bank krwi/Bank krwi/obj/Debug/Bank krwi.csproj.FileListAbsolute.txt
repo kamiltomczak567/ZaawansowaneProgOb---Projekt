@@ -303,6 +303,7 @@ C:\Users\damian\Desktop\ZaawansowaneProgOb---Projekt\aktualizacja\ZaawansowanePr
 C:\Users\damian\Desktop\ZaawansowaneProgOb---Projekt\aktualizacja\ZaawansowaneProgOb---Projekt-master\Bank krwi\Bank krwi\obj\Debug\Bank krwi.g.resources
 C:\Users\damian\Desktop\ZaawansowaneProgOb---Projekt\aktualizacja\ZaawansowaneProgOb---Projekt-master\Bank krwi\Bank krwi\obj\Debug\Bank_krwi.Properties.Resources.resources
 C:\Users\damian\Desktop\ZaawansowaneProgOb---Projekt\aktualizacja\ZaawansowaneProgOb---Projekt-master\Bank krwi\Bank krwi\obj\Debug\Bank krwi.csproj.GenerateResource.Cache
+<<<<<<< HEAD
 C:\Users\damian\Downloads\ZaawansowaneProgOb---Projekt-master\aktualizacja\ZaawansowaneProgOb---Projekt-master\Bank krwi\Bank krwi\bin\Debug\Bank krwi.exe.config
 C:\Users\damian\Downloads\ZaawansowaneProgOb---Projekt-master\aktualizacja\ZaawansowaneProgOb---Projekt-master\Bank krwi\Bank krwi\obj\Debug\Bank krwi.exe
 C:\Users\damian\Downloads\ZaawansowaneProgOb---Projekt-master\aktualizacja\ZaawansowaneProgOb---Projekt-master\Bank krwi\Bank krwi\obj\Debug\Bank krwi.pdb
@@ -346,3 +347,5 @@ C:\Users\damian\Downloads\ZaawansowaneProgOb---Projekt-master\aktualizacja\Zaawa
 G:\ZaawansowaneProgOb---Projekt-master\aktualizacja\ZaawansowaneProgOb---Projekt-master\Bank krwi\Bank krwi\bin\Debug\Bank krwi.exe.config
 G:\ZaawansowaneProgOb---Projekt-master\aktualizacja\ZaawansowaneProgOb---Projekt-master\Bank krwi\Bank krwi\obj\Debug\Bank krwi.exe
 G:\ZaawansowaneProgOb---Projekt-master\aktualizacja\ZaawansowaneProgOb---Projekt-master\Bank krwi\Bank krwi\obj\Debug\Bank krwi.pdb
+=======
+>>>>>>> 095e9f74102788fcb7d90c753b4243613454c1ef

@@ -19,18 +19,30 @@ namespace Bank_krwi {
     /// <summary>
     /// Interaction logic for newUser.xaml
     /// </summary>
+<<<<<<< HEAD
     public partial class NewUser : Window {
+=======
+    public partial class newUser : Window {
+>>>>>>> 095e9f74102788fcb7d90c753b4243613454c1ef
         private SQLiteDataAdapter m_oDataAdapter = null;
         private DataSet m_oDataSet = null;
         private DataTable m_oDataTable = null;
 
         private IDonatorValidation donatorValidation = new DonatorValidationImplentation();
 
+<<<<<<< HEAD
         public NewUser() {
             InitializeComponent();
             InitBinding();
         }
         // pobieranie danych z SQLLite
+=======
+        public newUser() {
+            InitializeComponent();
+            InitBinding();
+        }
+
+>>>>>>> 095e9f74102788fcb7d90c753b4243613454c1ef
         private void InitBinding() {
             SQLiteConnection oSQLiteConnection =
                 new SQLiteConnection("Data Source=BazaDanych.s3db");
@@ -46,6 +58,7 @@ namespace Bank_krwi {
             lstItems.DataContext = m_oDataTable.DefaultView;
         }
 
+<<<<<<< HEAD
         private void Btn_Add_Click(object sender, RoutedEventArgs e) {
             string Imie = ImieBox.Text;
             string Nazwisko = NazwiskoBox.Text;
@@ -61,11 +74,32 @@ namespace Bank_krwi {
             }
 
             Donator donator = new Donator(Imie, Nazwisko, Int32.Parse(Wiek), GrupaKrwi, Plec, Adres, Int32.Parse(Telefon), OddanaKrew);
+=======
+        private void btnAdd_Click(object sender, RoutedEventArgs e) {
+            string imie = imieBox.Text;
+            string nazwisko = nazwiskoBox.Text;
+            string wiek = wiekBox.Text;
+            string grupaKrwi = comboGr.Text;
+            string plec = plecBox.Text;
+            string adres = adresBox.Text;
+            string telefon = telefonBox.Text;
+            string oddanaKrew = oddanaKrewBox.Text;
+
+            if(!oddanaKrew.All(char.IsDigit)) {
+                throw new FormatException("Ilość musi być cyfrą całkowitą");
+            }
+
+            Donator donator = new Donator(imie, nazwisko, Int32.Parse(wiek), grupaKrwi, plec, adres, Int32.Parse(telefon), oddanaKrew);
+>>>>>>> 095e9f74102788fcb7d90c753b4243613454c1ef
             AddDonator(donator);
         }
 
         private void AddDonator(Donator donator) {
             donatorValidation.AddDonatorValidate(donator);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 095e9f74102788fcb7d90c753b4243613454c1ef
             DataRow oDataRow = m_oDataTable.NewRow();
             oDataRow[0] = m_oDataTable.Rows.Count + 1; // id zlicz i powiększ o 1
             oDataRow[1] = donator.Imie;
@@ -95,6 +129,7 @@ namespace Bank_krwi {
             m_oDataAdapter.Update(m_oDataSet);
         }
 
+<<<<<<< HEAD
         private void Btn_Edit_Click(object sender, RoutedEventArgs e) {
             string Imie = ImieBox.Text;
             string Nazwisko = NazwiskoBox.Text;
@@ -106,10 +141,24 @@ namespace Bank_krwi {
             string OddanaKrew = OddanaKrewBox.Text;
 
             if(!OddanaKrew.All(char.IsDigit)) {
+=======
+        private void btnEdit_Click(object sender, RoutedEventArgs e) {
+            string imie = imieBox.Text;
+            string nazwisko = nazwiskoBox.Text;
+            string wiek = wiekBox.Text;
+            string grupaKrwi = comboGr.Text;
+            string plec = plecBox.Text;
+            string adres = adresBox.Text;
+            string telefon = telefonBox.Text;
+            string oddanaKrew = oddanaKrewBox.Text;
+
+            if(!oddanaKrew.All(char.IsDigit)) {
+>>>>>>> 095e9f74102788fcb7d90c753b4243613454c1ef
                 throw new FormatException("Ilość musi być cyfrą całkowitą");
             }
 
             if(0 == lstItems.SelectedItems.Count) {
+<<<<<<< HEAD
                 return; // Jeżeli nie wybrano zadnego dawcy - nie rob nic
             }
             DataRow oDataRow = ((DataRowView)lstItems.SelectedItem).Row;
@@ -122,14 +171,33 @@ namespace Bank_krwi {
             oDataRow[6] = Adres;
             oDataRow[7] = Telefon;
             oDataRow[8] = OddanaKrew;
+=======
+                return;
+            }
+            DataRow oDataRow = ((DataRowView)lstItems.SelectedItem).Row;
+            oDataRow.BeginEdit();
+            oDataRow[1] = imie;
+            oDataRow[2] = nazwisko;
+            oDataRow[3] = wiek;
+            oDataRow[4] = grupaKrwi;
+            oDataRow[5] = plec;
+            oDataRow[6] = adres;
+            oDataRow[7] = telefon;
+            oDataRow[8] = oddanaKrew;
+>>>>>>> 095e9f74102788fcb7d90c753b4243613454c1ef
             oDataRow[9] = "BRAK";
             oDataRow.EndEdit();
             m_oDataAdapter.Update(m_oDataSet);
         }
 
 
+<<<<<<< HEAD
         private void Btn_Delete_Click(object sender, RoutedEventArgs e) {
             if(0 == lstItems.SelectedItems.Count) { // Jeżeli nie wybrano zadnego dawcy - nie rob nic
+=======
+        private void btnDelete_Click(object sender, RoutedEventArgs e) {
+            if(0 == lstItems.SelectedItems.Count) {
+>>>>>>> 095e9f74102788fcb7d90c753b4243613454c1ef
                 return;
             }
             DataRow oDataRow = ((DataRowView)lstItems.SelectedItem).Row;
@@ -165,7 +233,11 @@ namespace Bank_krwi {
 
         }
 
+<<<<<<< HEAD
         private void Btn_AddBloodClick(object sender, RoutedEventArgs e) {
+=======
+        private void addBloodBtn_Click(object sender, RoutedEventArgs e) {
+>>>>>>> 095e9f74102788fcb7d90c753b4243613454c1ef
             string dodatkowaKrew = bloodToGive.Text;
 
             if(String.IsNullOrWhiteSpace(dodatkowaKrew) || dodatkowaKrew.All(char.IsDigit)) { // sprawdzamy, czy uzytkownik wpisal jakaś wartość i czy wszystkie znaki są cyfrą 
@@ -205,6 +277,7 @@ namespace Bank_krwi {
 
             object[] selectedItemData = index.Row.ItemArray; // pobiera wszystkie dane z danego wiersza i przypisuje je do tablicy obiektow
 
+<<<<<<< HEAD
             ImieBox.Text = (string)selectedItemData[1];
             NazwiskoBox.Text = (string)selectedItemData[2];
             WiekBox.Text = (string)selectedItemData[3];
@@ -213,6 +286,16 @@ namespace Bank_krwi {
             AdresBox.Text = (string)selectedItemData[6];
             TelefonBox.Text = (string)selectedItemData[7];
             OddanaKrewBox.Text = ((long)selectedItemData[8]).ToString();
+=======
+            imieBox.Text = (string)selectedItemData[1];
+            nazwiskoBox.Text = (string)selectedItemData[2];
+            wiekBox.Text = (string)selectedItemData[3];
+            comboGr.SelectedItem = (string)selectedItemData[4];
+            plecBox.Text = (string)selectedItemData[5];
+            adresBox.Text = (string)selectedItemData[6];
+            telefonBox.Text = (string)selectedItemData[7];
+            oddanaKrewBox.Text = ((long)selectedItemData[8]).ToString();
+>>>>>>> 095e9f74102788fcb7d90c753b4243613454c1ef
         }
     }
 }
