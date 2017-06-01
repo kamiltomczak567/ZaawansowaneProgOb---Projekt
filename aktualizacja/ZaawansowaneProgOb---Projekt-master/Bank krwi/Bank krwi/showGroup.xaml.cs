@@ -19,78 +19,78 @@ namespace Bank_krwi
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class showGroup : Window
+    public partial class ShowGroup : Window
     {
         List<Donator> donators = new List<Donator>();
 
-        public showGroup()
+        public ShowGroup()
         {
             InitializeComponent();
         }
 
-        private void Click_0Rh0(object sender, RoutedEventArgs e)
+        private void Btn_Click_0Rh0(object sender, RoutedEventArgs e)
         {
             string a = "0Rh-";
             showUser showUser = new showUser(a);
-            readDonators(showUser);
+            ReadDonators(showUser);
             showUser.Show();
         }
 
-        private void Click_0Rh1(object sender, RoutedEventArgs e)
+        private void Btn_Click_0Rh1(object sender, RoutedEventArgs e)
         {
             string a = "0Rh+";
             showUser showUser = new showUser(a);
-            readDonators(showUser);
+            ReadDonators(showUser);
             showUser.Show();
         }
 
-        private void Click_BRh1(object sender, RoutedEventArgs e)
+        private void Btn_Click_BRh1(object sender, RoutedEventArgs e)
         {
             string a = "BRh+";
             showUser showUser = new showUser(a);
-            readDonators(showUser);
+            ReadDonators(showUser);
             showUser.Show();
         }
 
-        private void Click_BRh0(object sender, RoutedEventArgs e)
+        private void Btn_Click_BRh0(object sender, RoutedEventArgs e)
         {
             string a = "BRh-";
             showUser showUser = new showUser(a);
-            readDonators(showUser);
+            ReadDonators(showUser);
             showUser.Show();
 
         }
 
-        private void Click_ARh1(object sender, RoutedEventArgs e)
+        private void Btn_Click_ARh1(object sender, RoutedEventArgs e)
         {
             string a = "ARh+";
             showUser showUser = new showUser(a);
-            readDonators(showUser);
+            ReadDonators(showUser);
             showUser.Show();
         }
 
-        private void Click_ARh0(object sender, RoutedEventArgs e)
+        private void Btn_Click_ARh0(object sender, RoutedEventArgs e)
         {
             string a = "ARh-";
             showUser showUser = new showUser(a);
-            readDonators(showUser);
+            ReadDonators(showUser);
             showUser.Show();
 
         }
 
-        private void Click_ABRh1(object sender, RoutedEventArgs e)
+        private void Btn_Click_ABRh1(object sender, RoutedEventArgs e)
         {
             string a = "ABRh+";
             showUser showUser = new showUser(a);
-            readDonators(showUser);
+            ReadDonators(showUser);
             showUser.Show();
         }
 
-        private void Click_ABRh0(object sender, RoutedEventArgs e)
+        private void Btn_Click_ABRh0(object sender, RoutedEventArgs e)
         {
             string a = "ABRh-";
             showUser showUser = new showUser(a);
-            readDonators(showUser);
+            ReadDonators(showUser);
             showUser.Show();
         }
 
@@ -98,52 +98,52 @@ namespace Bank_krwi
         /// Zapisuje wszystkich dawców krwi do listy
         /// </summary>
         /// <param name="showUser">dane o wybranych dawcach</param>
-        private void readDonators(showUser showUser) {
+        private void ReadDonators(showUser showUser) {
             donators.Clear();
             //for po wszystkich kolumnach z showUser
             for(int i = 0; i < showUser.m_oDataTable.Rows.Count; i++) {
                 //dane o konkretnym dawcy jako lista obiektów
-                var zawartoscTabeli = showUser.m_oDataTable.Rows[i].ItemArray;
+                var ZawartoscTabeli = showUser.m_oDataTable.Rows[i].ItemArray;
+                var Imie = ZawartoscTabeli[1].ToString();
+                var Nazwisko = ZawartoscTabeli[2].ToString();
 
-                var imie = zawartoscTabeli[1].ToString();
-                var nazwisko = zawartoscTabeli[2].ToString();
                 //jeżeli podczas parsowania wystąpi błąd(np to nie jest liczba), to przypisuje wiek jako 0
                 int wiek;
                 try {
-                    wiek = Int32.Parse(zawartoscTabeli[3].ToString());
+                    wiek = Int32.Parse(ZawartoscTabeli[3].ToString());
                 } catch(System.FormatException) {
                     wiek = 0;
                 }
-                var grupaKrw = zawartoscTabeli[4].ToString();
-                var plec = zawartoscTabeli[5].ToString();
-                var adres = zawartoscTabeli[6].ToString();
-                int telefon;
+                var GrupaKrw = ZawartoscTabeli[4].ToString();
+                var Plec = ZawartoscTabeli[5].ToString();
+                var Adres = ZawartoscTabeli[6].ToString();
+                int Telefon;
                 try {
-                    telefon = Int32.Parse(zawartoscTabeli[7].ToString());
+                    Telefon = Int32.Parse(ZawartoscTabeli[7].ToString());
                 } catch(System.FormatException) {
-                    telefon = 0;
+                    Telefon = 0;
                 }
-                var iloscKrwii = zawartoscTabeli[8].ToString();
+                var iloscKrwii = ZawartoscTabeli[8].ToString();
 
-                Donator donator = new Donator(imie, nazwisko, wiek, grupaKrw, plec, adres, telefon,iloscKrwii);
+                Donator donator = new Donator(Imie, Nazwisko, wiek, GrupaKrw, Plec, Adres, Telefon,iloscKrwii); // stwórz donatora przypisujac mu wszystkie parametry
                 donators.Add(donator);
             }
         }
 
-        private void B_pdf_Click(object sender, RoutedEventArgs e)
+        private void Btn_pdf_Click(object sender, RoutedEventArgs e)
         {
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
-            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("Test.pdf", FileMode.Create));
+            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("grupy_krwi.pdf", FileMode.Create));
             doc.Open(); // otworz dokument
             //Zaawartosc dokumentu
             foreach(var donator in donators) {
-                doc.Add(createParagraphFromDonator(donator));
+                doc.Add(CreateParagraphFromDonator(donator)); // Dodaj zawartosc kadzego "donatora" do pdf
             }
 
-            doc.Close();
+            doc.Close(); // zamknij dokument
         }
        
-        private Paragraph createParagraphFromDonator(Donator donator) {
+        private Paragraph CreateParagraphFromDonator(Donator donator) {
             String paragraphText = "";
             paragraphText += donator.Imie + " ";
             paragraphText += donator.Nazwisko + " ";

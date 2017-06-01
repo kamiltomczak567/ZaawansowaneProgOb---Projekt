@@ -14,27 +14,23 @@ using System.Windows.Shapes;
 using System.Data.SQLite;
 using System.Data;
 
-namespace Bank_krwi
-{
+namespace Bank_krwi {
     /// <summary>
     /// Interaction logic for targerPlaces.xaml
     /// </summary>
-    public partial class targerPlaces : Window
-    {
+    public partial class TargetPlaces : Window {
         public SQLiteDataAdapter m_oDataAdapter = null;
         public DataSet m_oDataSet = null;
         public DataTable m_oDataTable = null;
         string street, city;
 
-        public targerPlaces(int id)
-        {
+        public TargetPlaces(int id) {
             InitializeComponent();
             InitBinding(id);
             SearchPlace(id);
         }
 
-        private void InitBinding(int id)
-        {
+        private void InitBinding(int id) {
             SQLiteConnection oSQLiteConnection =
                 new SQLiteConnection("Data Source=BazaDanych.s3db");
             SQLiteCommand oCommand = oSQLiteConnection.CreateCommand();
@@ -55,39 +51,32 @@ namespace Bank_krwi
 
         private void SearchPlace(int id) {
 
-            if (id == 1) {
-            string street = "Malborska 2";
-            string city = "Olsztyn";
+            if(id == 1) {
+                street = "Malborska 2";
+                city = "Olsztyn";
             }
-            if (id == 2)
-            {
-                string street = "Lesna 1";
-                string city = "Działdowo";
+            if(id == 2) {
+                street = "Lesna 1";
+                city = "Działdowo";
             }
-            if (id == 3)
-            {
-                string street = "Giżycko";
-                string city = "Bohaterów Westerplatte 4";
+            if(id == 3) {
+                street = "Giżycko";
+                city = "Bohaterów Westerplatte 4";
             }
 
-            try
-            {
+            try {
                 StringBuilder queryadress = new StringBuilder();
                 queryadress.Append("http://maps.google.com/maps?q=");
 
-               if (street != string.Empty)
-                {
+                if(street != string.Empty) {
                     queryadress.Append(street + "," + "+");
                 }
-                if (city != string.Empty)
-                {
+                if(city != string.Empty) {
                     queryadress.Append(city + "," + "+");
                 }
 
                 webBrowser.Navigate(queryadress.ToString());
-            }
-            catch (Exception ex)
-            {
+            } catch(Exception ex) {
 
                 MessageBox.Show(ex.Message.ToString(), "Error");
             }

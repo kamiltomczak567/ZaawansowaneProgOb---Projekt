@@ -19,8 +19,6 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Threading;
 
-
-
 namespace Bank_krwi
 {
     /// <summary>
@@ -33,62 +31,52 @@ namespace Bank_krwi
             InitializeComponent();
         }
 
-
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Btn_NewDonator(object sender, RoutedEventArgs e)
         {
-            newUser newUser = new newUser();
-            newUser.Show();
-          //  this.Close();
-
-           
+            NewUser newUser = new NewUser();
+            newUser.Show();        
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Btn_ShowPlaces(object sender, RoutedEventArgs e)
         {
-            showPlaces showPlaces = new showPlaces();
+            ShowPlaces showPlaces = new ShowPlaces();
             showPlaces.Show();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Btn_ShowBloodGroup(object sender, RoutedEventArgs e)
         {
-           /* showUser showUser = new showUser();
-            showUser.Show();*/
-            showGroup showGroup = new showGroup();
+            ShowGroup showGroup = new ShowGroup();
             showGroup.Show();
-           
-
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void Btn_Facebook(object sender, RoutedEventArgs e)
         {
-            string token = getToken();
-            var request = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/v2.9/wetbankkrwi/feed?access_token=" + token);
-            var response = (HttpWebResponse)request.GetResponse();
-            FacebookPost fbPost = getFacebookPost(response);
+            string token = GetToken();
+            var Request = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/v2.9/wetbankkrwi/feed?access_token=" + token);
+            var Response = (HttpWebResponse)Request.GetResponse();
+            FacebookPost fbPost = GetFacebookPost(Response);
             facebookPosts facebookPost = new facebookPosts(fbPost);
             facebookPost.Show();
         }
 
-        private string getToken()
+        private string GetToken()
         {
-            var tokenRequest = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/v2.9/oauth/access_token?client_id=1066391300160675&client_secret=529c6b46acc37b676b6bc438c7691291&grant_type=client_credentials");
-            var tokenResponse = (HttpWebResponse)tokenRequest.GetResponse();
-            var responseTokenString = new StreamReader(tokenResponse.GetResponseStream()).ReadToEnd();
-            dynamic y = JsonConvert.DeserializeObject(responseTokenString);
-
+            var TokenRequest = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/v2.9/oauth/access_token?client_id=1066391300160675&client_secret=529c6b46acc37b676b6bc438c7691291&grant_type=client_credentials");
+            var TokenResponse = (HttpWebResponse)TokenRequest.GetResponse();
+            var ResponseTokenString = new StreamReader(TokenResponse.GetResponseStream()).ReadToEnd();
+            dynamic y = JsonConvert.DeserializeObject(ResponseTokenString);
             return y.access_token;
         }
 
-        private FacebookPost getFacebookPost(HttpWebResponse response)
+        private FacebookPost GetFacebookPost(HttpWebResponse response)
         {
-            var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-            dynamic x = JsonConvert.DeserializeObject(responseString);
-            var data = x.data;
-            string message = data[0].message;
-            string created_time = data[0].created_time;
-            string id = data[0].id;
-            FacebookPost fbPost = new FacebookPost(created_time, message, id);
+            var ResponseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            dynamic x = JsonConvert.DeserializeObject(ResponseString);
+            var Data = x.data;
+            string Message = Data[0].message;
+            string Created_time = Data[0].created_time;
+            string id = Data[0].id;
+            FacebookPost fbPost = new FacebookPost(Created_time, Message, id);
             return fbPost;
         }
 

@@ -15,27 +15,23 @@ using System.Data.SQLite;
 using System.Data;
 using System.Text.RegularExpressions;
 
-namespace Bank_krwi
-{
+namespace Bank_krwi {
     /// <summary>
     /// Interaction logic for newUser.xaml
     /// </summary>
-    public partial class newUser : Window
-    {
+    public partial class NewUser : Window {
         private SQLiteDataAdapter m_oDataAdapter = null;
         private DataSet m_oDataSet = null;
         private DataTable m_oDataTable = null;
 
         private IDonatorValidation donatorValidation = new DonatorValidationImplentation();
 
-        public newUser()
-        {
+        public NewUser() {
             InitializeComponent();
             InitBinding();
         }
-
-        private void InitBinding()
-        {
+        // pobieranie danych z SQLLite
+        private void InitBinding() {
             SQLiteConnection oSQLiteConnection =
                 new SQLiteConnection("Data Source=BazaDanych.s3db");
             SQLiteCommand oCommand = oSQLiteConnection.CreateCommand();
@@ -50,43 +46,28 @@ namespace Bank_krwi
             lstItems.DataContext = m_oDataTable.DefaultView;
         }
 
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            string imie = imieBox.Text;
-            string nazwisko = nazwiskoBox.Text;
-            string wiek = wiekBox.Text;
-            string grupaKrwi = comboGr.Text;
-            string plec = plecBox.Text;
-            string adres = adresBox.Text;
-            string telefon = telefonBox.Text;
-            string oddanaKrew = oddanaKrewBox.Text;
+        private void Btn_Add_Click(object sender, RoutedEventArgs e) {
+            string Imie = ImieBox.Text;
+            string Nazwisko = NazwiskoBox.Text;
+            string Wiek = WiekBox.Text;
+            string GrupaKrwi = ComboGr.Text;
+            string Plec = PlecBox.Text;
+            string Adres = AdresBox.Text;
+            string Telefon = TelefonBox.Text;
+            string OddanaKrew = OddanaKrewBox.Text;
 
-            Donator donator = new Donator(imie, nazwisko, Int32.Parse(wiek), grupaKrwi, plec, adres, Int32.Parse(telefon),oddanaKrew);
+            if(!OddanaKrew.All(char.IsDigit)) {
+                throw new FormatException("Ilość musi być cyfrą całkowitą");
+            }
+
+            Donator donator = new Donator(Imie, Nazwisko, Int32.Parse(Wiek), GrupaKrwi, Plec, Adres, Int32.Parse(Telefon), OddanaKrew);
             AddDonator(donator);
         }
 
         private void AddDonator(Donator donator) {
             donatorValidation.AddDonatorValidate(donator);
-
-            /*   SQLiteDataAdapter m_oDataAdapter = null;
-              DataSet m_oDataSet = null;
-              DataTable m_oDataTable = null;
-
-             SQLiteConnection oSQLiteConnection =
-                 new SQLiteConnection("Data Source=BazaDanych.s3db");
-             SQLiteCommand oCommand = oSQLiteConnection.CreateCommand();
-             oCommand.CommandText = "SELECT * FROM Person";
-             m_oDataAdapter = new SQLiteDataAdapter(oCommand.CommandText,
-                 oSQLiteConnection);
-             SQLiteCommandBuilder oCommandBuilder =
-                 new SQLiteCommandBuilder(m_oDataAdapter);
-             m_oDataSet = new DataSet();
-             m_oDataAdapter.Fill(m_oDataSet);
-             m_oDataTable = m_oDataSet.Tables[0];
-             lstItems.DataContext = m_oDataTable.DefaultView;*/
-
             DataRow oDataRow = m_oDataTable.NewRow();
-            oDataRow[0] = m_oDataTable.Rows.Count + 1;
+            oDataRow[0] = m_oDataTable.Rows.Count + 1; // id zlicz i powiększ o 1
             oDataRow[1] = donator.Imie;
             oDataRow[2] = donator.Nazwisko;
             oDataRow[3] = donator.Wiek;
@@ -99,12 +80,10 @@ namespace Bank_krwi
             m_oDataAdapter.Update(m_oDataSet);
         }
 
-        private void EditDonator(Donator donator)
-        {
+        private void EditDonator(Donator donator) {
             donatorValidation.AddDonatorValidate(donator);
-
             DataRow oDataRow = m_oDataTable.NewRow();
-            oDataRow[0] = m_oDataTable.Rows.Count + 1;
+            oDataRow[0] = m_oDataTable.Rows.Count + 1;// id zlicz i powiększ o 1
             oDataRow[1] = donator.Imie;
             oDataRow[2] = donator.Nazwisko;
             oDataRow[3] = donator.Wiek;
@@ -116,73 +95,41 @@ namespace Bank_krwi
             m_oDataAdapter.Update(m_oDataSet);
         }
 
-        private void btnEdit_Click(object sender, RoutedEventArgs e)
-        {
-       /*     
-            if (0 == lstItems.SelectedItems.Count)
-            {
-                return;
+        private void Btn_Edit_Click(object sender, RoutedEventArgs e) {
+            string Imie = ImieBox.Text;
+            string Nazwisko = NazwiskoBox.Text;
+            string Wiek = WiekBox.Text;
+            string GrupaKrwi = ComboGr.Text;
+            string Plec = PlecBox.Text;
+            string Adres = AdresBox.Text;
+            string Telefon = TelefonBox.Text;
+            string OddanaKrew = OddanaKrewBox.Text;
+
+            if(!OddanaKrew.All(char.IsDigit)) {
+                throw new FormatException("Ilość musi być cyfrą całkowitą");
+            }
+
+            if(0 == lstItems.SelectedItems.Count) {
+                return; // Jeżeli nie wybrano zadnego dawcy - nie rob nic
             }
             DataRow oDataRow = ((DataRowView)lstItems.SelectedItem).Row;
             oDataRow.BeginEdit();
-            string imie = imieBox.Text;
-            string nazwisko = nazwiskoBox.Text;
-            string wiek = wiekBox.Text;
-            string grupaKrwi = comboGr.Text;
-            string plec = plecBox.Text;
-            string adres = adresBox.Text;
-            string telefon = telefonBox.Text;
-            string oddanaKrew = oddanaKrewBox.Text;
-
-            Donator donator = new Donator(imie, nazwisko, Int32.Parse(wiek), grupaKrwi, plec, adres, Int32.Parse(telefon), float.Parse(oddanaKrew));
-            EditDonator(donator);*/
-            string imie = imieBox.Text;
-            string nazwisko = nazwiskoBox.Text;
-            string wiek = wiekBox.Text;
-            string grupaKrwi = comboGr.Text;
-            string plec = plecBox.Text;
-            string adres = adresBox.Text;
-            string telefon = telefonBox.Text;
-            string oddanaKrew = oddanaKrewBox.Text;
-
-                if (0 == lstItems.SelectedItems.Count)
-                    {
-                        return;
-                    }
-                    DataRow oDataRow = ((DataRowView)lstItems.SelectedItem).Row;
-                    oDataRow.BeginEdit();
-                 //   oDataRow[1] = imie;
-                 //   oDataRow[2] = nazwisko;
-                 //   oDataRow[3] = wiek;
-                  //  oDataRow[4] = grupaKrwi;
-                  //  oDataRow[5] = plec;
-                  //  oDataRow[6] = adres;
-                  //  oDataRow[7] = telefon;
-                    oDataRow[8] = oddanaKrew;
-                    oDataRow.EndEdit();
-                    m_oDataAdapter.Update(m_oDataSet);
+            oDataRow[1] = Imie;
+            oDataRow[2] = Nazwisko;
+            oDataRow[3] = Wiek;
+            oDataRow[4] = GrupaKrwi;
+            oDataRow[5] = Plec;
+            oDataRow[6] = Adres;
+            oDataRow[7] = Telefon;
+            oDataRow[8] = OddanaKrew;
+            oDataRow[9] = "BRAK";
+            oDataRow.EndEdit();
+            m_oDataAdapter.Update(m_oDataSet);
         }
 
 
-        private void btnDelete_Click(object sender, RoutedEventArgs e)
-        {
-            /*  SQLiteDataAdapter m_oDataAdapter = null;
-              DataSet m_oDataSet = null;
-
-              SQLiteConnection oSQLiteConnection =
-                  new SQLiteConnection("Data Source=BazaDanych.s3db");
-              SQLiteCommand oCommand = oSQLiteConnection.CreateCommand();
-              oCommand.CommandText = "SELECT * FROM Person";
-              m_oDataAdapter = new SQLiteDataAdapter(oCommand.CommandText,
-                  oSQLiteConnection);
-              SQLiteCommandBuilder oCommandBuilder =
-                  new SQLiteCommandBuilder(m_oDataAdapter);
-              m_oDataSet = new DataSet();
-              m_oDataAdapter.Fill(m_oDataSet);*/
-
-
-            if (0 == lstItems.SelectedItems.Count)
-            {
+        private void Btn_Delete_Click(object sender, RoutedEventArgs e) {
+            if(0 == lstItems.SelectedItems.Count) { // Jeżeli nie wybrano zadnego dawcy - nie rob nic
                 return;
             }
             DataRow oDataRow = ((DataRowView)lstItems.SelectedItem).Row;
@@ -191,12 +138,10 @@ namespace Bank_krwi
         }
 
         private void Window_Closing(object sender,
-            System.ComponentModel.CancelEventArgs e)
-        {
+            System.ComponentModel.CancelEventArgs e) {
         }
 
-        private void ComboBox_Loaded(object sender, RoutedEventArgs e)
-        {
+        private void ComboBox_Loaded(object sender, RoutedEventArgs e) {
             List<string> data = new List<string>();
             data.Add("Wybierz");
             data.Add("0Rh-");
@@ -212,9 +157,62 @@ namespace Bank_krwi
             combo.SelectedIndex = 0;
         }
 
-        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
 
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e) {
+
+        }
+
+        private void Btn_AddBloodClick(object sender, RoutedEventArgs e) {
+            string dodatkowaKrew = bloodToGive.Text;
+
+            if(String.IsNullOrWhiteSpace(dodatkowaKrew) || dodatkowaKrew.All(char.IsDigit)) { // sprawdzamy, czy uzytkownik wpisal jakaś wartość i czy wszystkie znaki są cyfrą 
+                if(0 == lstItems.SelectedItems.Count) { // Jeżeli nie wybrano zadnego dawcy - nie rob nic
+                    return;
+                }
+
+                DataRow oDataRow = ((DataRowView)lstItems.SelectedItem).Row; //wybiera obiekt z listy i zamienia go na typ DataRowView
+                oDataRow.BeginEdit();
+                oDataRow[8] = Convert.ToInt32(oDataRow[8]) + Int32.Parse(dodatkowaKrew); // Dodaje wpisana ilosc do ogolnej wartosci krwi
+
+                int iloscOddanejKrwi = Convert.ToInt32(oDataRow[8]);
+                if(iloscOddanejKrwi >= 5800 && (string)oDataRow[9] == "BRAK") {
+                    MessageBox.Show(oDataRow[1] + " " + oDataRow[2] + " uzyskał odznakę brązową!");
+                    oDataRow[9] = "BRAZAWA";
+                } else if(iloscOddanejKrwi >= 12000 && ((string)oDataRow[9] == "BRAZAWA" || (string)oDataRow[9] == "BRAK")) {
+                    MessageBox.Show(oDataRow[1] + " " + oDataRow[2] + " uzyskał odznakę srebrną!");
+                    oDataRow[9] = "SREBRNA";
+                } else if(iloscOddanejKrwi >= 20000 && ((string)oDataRow[9] == "SREBRNA" || (string)oDataRow[9] == "BRAZAWA" || (string)oDataRow[9] == "BRAK")) {
+                    MessageBox.Show(oDataRow[1] + " " + oDataRow[2] + " uzyskał odznakę złotą!");
+                    oDataRow[9] = "ZLOTA";
+                }
+
+                oDataRow.EndEdit();
+                m_oDataAdapter.Update(m_oDataSet); // zapisuje do bazy
+                bloodToGive.Clear();
+            } else {
+                throw new FormatException("Ilość musi być cyfrą całkowitą");
+            }
+        }
+
+        private void lstItems_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            DataRowView index = (DataRowView)lstItems.SelectedItem; //wybiera obiekt z listy i zamienia go na typ DataRowView
+            if(index == null) { // Jeżeli nie znaleziono indeksu, to powróć(nie wykonuj reszty kodu)
+                return;
+            }
+
+            object[] selectedItemData = index.Row.ItemArray; // pobiera wszystkie dane z danego wiersza i przypisuje je do tablicy obiektow
+
+            ImieBox.Text = (string)selectedItemData[1];
+            NazwiskoBox.Text = (string)selectedItemData[2];
+            WiekBox.Text = (string)selectedItemData[3];
+            ComboGr.SelectedItem = (string)selectedItemData[4];
+            PlecBox.Text = (string)selectedItemData[5];
+            AdresBox.Text = (string)selectedItemData[6];
+            TelefonBox.Text = (string)selectedItemData[7];
+            OddanaKrewBox.Text = ((long)selectedItemData[8]).ToString();
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Bank_krwi {
+    //W przyszłości MOŻE będzie fasada
     interface IDonatorValidation {
         void AddDonatorValidate(Donator donator);
     }

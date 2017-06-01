@@ -9,11 +9,12 @@ using System.Text.RegularExpressions;
 
 namespace Bank_krwi {
     class DonatorValidationImplentation : IDonatorValidation {
+
         public void AddDonatorValidate(Donator donator) {
             if(String.IsNullOrWhiteSpace(donator.Imie)) {
                 throw new ArgumentNullException("Imie jest wymagane");
             }
-            if(donator.Imie.Any(char.IsDigit)) {
+            if(donator.Imie.Any(char.IsDigit)) { // sprawdza, czy string zawiera jakąś cyfrę
                 throw new FormatException("Imie nie może być cyfrą");
             }
 
@@ -24,7 +25,7 @@ namespace Bank_krwi {
                 throw new FormatException("Nazwisko nie może być cyfrą");
             }
 
-            if(donator.Wiek <= 18 || donator.Wiek >= 65) {
+            if(donator.Wiek < 17 || donator.Wiek > 66) {
                 throw new ArgumentOutOfRangeException("Wiek musi zawierać się w przedziale 18-65");
             }
         }

@@ -9,60 +9,60 @@ namespace Bank_krwi
     class ShowUserClass
     {
         private int id;
-        public string imie { get; private set; }
-        public string nazwisko { get; private set; }
-        public string dataUrodzenia { get; private set; }
-        public string grupaKrwii { get; private set; }
-        public string plec { get; private set; }
-        public string adres { get; private set; }
-        public string numerTelefonu { get; private set; }
+        public string Imie { get; private set; }
+        public string Nazwisko { get; private set; }
+        public string DataUrodzenia { get; private set; }
+        public string GrupaKrwii { get; private set; }
+        public string Plec { get; private set; }
+        public string Adres { get; private set; }
+        public string NumerTelefonu { get; private set; }
 
         public ShowUserClass(string imie, string nazwisko, string dataUrodzenia, string grupaKrwii, string plec, string adres, string numerTelefonu) {
 
-            this.imie = imie;
-            this.nazwisko = nazwisko;
-            this.dataUrodzenia = dataUrodzenia;
-            this.grupaKrwii = grupaKrwii;
-            this.plec = plec;
-            this.adres = adres;
-            this.numerTelefonu = numerTelefonu;
+            this.Imie = imie;
+            this.Nazwisko = nazwisko;
+            this.DataUrodzenia = dataUrodzenia;
+            this.GrupaKrwii = grupaKrwii;
+            this.Plec = plec;
+            this.Adres = adres;
+            this.NumerTelefonu = numerTelefonu;
         }
 
 
 
-        public string wezImie()
+        public string GetName()
         {
-            return this.imie;
+            return this.Imie;
         }
 
-        public string wezNazwisko()
+        public string GetSurname()
         {
-            return this.nazwisko;
+            return this.Nazwisko;
         }
 
-        public string wezDataUrodzenia()
+        public string GetDataborn()
         {
-            return this.dataUrodzenia;
+            return this.DataUrodzenia;
         }
 
-        public string wezGrupaKrwii()
+        public string GetBloodGroup()
         {
-            return this.grupaKrwii;
+            return this.GrupaKrwii;
         }
 
-        public string wezPlec()
+        public string GetSex()
         {
-            return this.plec;
+            return this.Plec;
         }
 
-        public string wezAdres()
+        public string GetAddres()
         {
-            return this.adres;
+            return this.Adres;
         }
 
-        public string wezNumerTelefonu()
+        public string GetPhoneNumber()
         {
-            return this.numerTelefonu;
+            return this.NumerTelefonu;
         }
 
     }
